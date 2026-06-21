@@ -14,9 +14,6 @@ theme:
   name: material
   logo: assets/logo.svg
   favicon: assets/logo.svg
-  font:
-    text: IBM Plex Sans
-    code: IBM Plex Mono
   icon:
     repo: fontawesome/brands/github
   features:
@@ -36,15 +33,15 @@ theme:
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: blue
-      accent: cyan
+      primary: indigo
+      accent: indigo
       toggle:
         icon: material/weather-night
         name: Switch to dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: blue
-      accent: cyan
+      primary: indigo
+      accent: indigo
       toggle:
         icon: material/weather-sunny
         name: Switch to light mode
@@ -75,7 +72,6 @@ plugins:
   - search
 
 extra_css:
-  - https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap
   - assets/extra.css
 
 exclude_docs: |

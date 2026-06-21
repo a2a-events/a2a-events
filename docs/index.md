@@ -4,36 +4,31 @@ hide:
   - toc
 ---
 
-<div class="aae-hero" markdown="0">
-  <div class="aae-hero__inner">
-    <p class="aae-eyebrow">A2A extension <span>·</span> events/v1</p>
-    <h1 class="aae-title">Subscribe to agents,<br><em>not URLs.</em></h1>
-    <p class="aae-lede">
-      Durable, AgentCard-native event subscriptions between A2A agents —
-      explicit topics, a normative selector algebra, leases, opaque cursors,
-      replay, and signed at-least-once delivery.
-    </p>
-    <div class="aae-actions">
-      <a class="aae-btn aae-btn--primary" href="specification/">Read the specification</a>
-      <a class="aae-btn" href="getting-started/">Get started</a>
-    </div>
-    <div class="aae-stream" role="img" aria-label="Events flowing from a publisher agent to a subscriber agent">
-      <span class="aae-node aae-node--pub">publisher</span>
-      <span class="aae-wire">
-        <span class="aae-track" aria-hidden="true">
-          <i class="aae-evt">&#8249;&#8250;</i><i class="aae-evt">&#8249;&#8250;</i><i class="aae-evt">&#8249;&#8250;</i><i class="aae-evt">&#8249;&#8250;</i><i class="aae-evt">&#8249;&#8250;</i><i class="aae-evt">&#8249;&#8250;</i><i class="aae-evt">&#8249;&#8250;</i><i class="aae-evt">&#8249;&#8250;</i><i class="aae-evt">&#8249;&#8250;</i><i class="aae-evt">&#8249;&#8250;</i><i class="aae-evt">&#8249;&#8250;</i><i class="aae-evt">&#8249;&#8250;</i><i class="aae-evt">&#8249;&#8250;</i><i class="aae-evt">&#8249;&#8250;</i><i class="aae-evt">&#8249;&#8250;</i><i class="aae-evt">&#8249;&#8250;</i><i class="aae-evt">&#8249;&#8250;</i><i class="aae-evt">&#8249;&#8250;</i><i class="aae-evt">&#8249;&#8250;</i><i class="aae-evt">&#8249;&#8250;</i>
-        </span>
-      </span>
-      <span class="aae-node aae-node--sub">subscriber</span>
-    </div>
+<div style="text-align: center;" markdown="0">
+  <div class="centered-logo-text-group">
+    <img src="assets/logo.svg" alt="A2A Events logo" width="84">
+    <h1>A2A Events</h1>
   </div>
+  <p class="hero-tagline">
+    Durable, AgentCard-native event subscriptions between A2A agents —
+    subscribe to agents, not URLs.
+  </p>
+  <p>
+    <a class="md-button md-button--primary" href="getting-started/">Get started</a>
+    <a class="md-button" href="specification/">Read the spec</a>
+  </p>
 </div>
 
+## What is A2A Events?
+
 A2A Events is an A2A *extension*
-(`https://example.com/a2a-events/extensions/events/v1`) built strictly on A2A
+(`https://example.com/a2a-events/extensions/events/v1`), built strictly on A2A
 v1.0 primitives. A subscriber discovers a publisher through its real AgentCard
 and subscribes to the agent — the publisher resolves delivery endpoints only
-from that card. This site is the language-neutral source of truth: the
+from that card. It adds explicit topics, a normative selector algebra, leases,
+opaque durable cursors, replay, and signed at-least-once delivery.
+
+This site is the language-neutral source of truth: the
 [specification](specification.md), JSON Schemas, conformance vectors, and guides.
 The Python reference implementation lives in
 [`a2a-events-python`](https://github.com/a2a-events/a2a-events-python).
