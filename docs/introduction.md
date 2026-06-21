@@ -11,7 +11,7 @@ delivery. It is built strictly on A2A v1.0 primitives and adds no new transport.
 This page is the conceptual on-ramp. For the wire-level details see the
 [Protocol Guide](protocol-guide.md); to run code see
 [Getting Started](getting-started.md); for the normative specification see
-[`DESIGN.md`](../DESIGN.md).
+[the specification](https://a2a-events.github.io/a2a-events/specification/).
 
 ---
 
@@ -99,7 +99,7 @@ the security model around delivery (topic authorization, per-subscription
 delivery tokens, SSRF guard, timestamp-skew rejection).
 
 It is **not** a general-purpose message bus and does not try to replace Kafka or
-NATS — see [§36 of the design](../DESIGN.md#36-why-this-is-not-just-pubsub-with-a2a-branding)
+NATS — see [§36 of the design](https://a2a-events.github.io/a2a-events/specification/#36-why-this-is-not-just-pubsub-with-a2a-branding)
 for why the AgentCard-native framing is the point, not the payload format.
 
 ## What's in the box

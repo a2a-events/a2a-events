@@ -10,10 +10,10 @@ This file is a **non-authoritative snapshot** of the A2A core definitions
 that A2A Events depends on. It exists so the design can be reviewed without a
 live network round-trip and so we can detect drift. If anything here
 conflicts with the official A2A specification, the official specification
-wins and this file (and `DESIGN.md`) must be corrected.
+wins and this file (and the spec) must be corrected.
 
 A2A Events is an extension on top of these primitives and must not redefine
-them (see `DESIGN.md` §6.1).
+them (see spec §6.1).
 
 ---
 
@@ -33,7 +33,7 @@ them (see `DESIGN.md` §6.1).
 | `skills`               | array of `AgentSkill`     | Declared skills.                                              |
 
 > Note: A2A v1.0 expresses endpoints via `preferredTransport` /
-> `additionalInterfaces`. Card examples in `DESIGN.md` are illustrative and
+> `additionalInterfaces`. Card examples in the spec are illustrative and
 > may omit required A2A fields.
 
 ## 2. AgentCapabilities

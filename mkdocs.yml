@@ -70,9 +70,6 @@ markdown_extensions:
 plugins:
   - search
 
-hooks:
-  - hooks/site_hooks.py
-
 exclude_docs: |
   README.md
 

@@ -1,7 +1,7 @@
 # A2A Events Conformance Suite
 
 Language-agnostic test vectors that any A2A Events implementation can run to
-check it matches the spec (DESIGN.md §33). This repo is the source of truth for
+check it matches the spec (spec §33). This repo is the source of truth for
 these fixtures. The reference Python runner is
 [`tests/test_conformance.py`](https://github.com/a2a-events/a2a-events-python/blob/main/tests/test_conformance.py)
 in the [`a2a-events-python`](https://github.com/a2a-events/a2a-events-python)
@@ -11,7 +11,7 @@ repo, which vendors a copy of these fixtures (kept in sync via its
 ## Fixtures
 
 ### `fixtures/selectors.json`
-Selector-matching vectors for the normative algebra (DESIGN.md §10.4). A shared
+Selector-matching vectors for the normative algebra (spec §10.4). A shared
 `event` plus `cases`, each with a `selector` and either:
 - `match` (boolean) — the expected match result, or
 - `error` (symbolic code, e.g. `INVALID_SELECTOR`) — the matcher must reject it.
@@ -20,12 +20,12 @@ Optional `default_search_fields` supplies a topic's default `keyword_search`
 fields when the selector omits `fields`.
 
 ### `fixtures/cursors.json`
-Cursor-ordering vectors (DESIGN.md §10.9). `ordered` is a list of reference
+Cursor-ordering vectors (spec §10.9). `ordered` is a list of reference
 cursors already in ascending order; a conformant byte-wise lexicographic sort
 must leave it unchanged, and that order must equal event order.
 
 ### `fixtures/errors.json`
-Error-code mapping (DESIGN.md §30). Each symbolic code maps to a JSON-RPC
+Error-code mapping (spec §30). Each symbolic code maps to a JSON-RPC
 numeric `code` (in the `-32000..-32099` server-error range) and an HTTP status
 for the HTTP+JSON binding.
 

@@ -1,5 +1,5 @@
 {
-  "description": "Selector matching vectors (DESIGN.md §10.4). Each case supplies a selector and an event; `match` is the expected result, or `error` names the symbolic error code the matcher must raise.",
+  "description": "Selector matching vectors (spec §10.4). Each case supplies a selector and an event; `match` is the expected result, or `error` names the symbolic error code the matcher must raise.",
   "event": {
     "type": "org.example.a2a.agent_card.discovered.v1",
     "subject": "agent-card/x",

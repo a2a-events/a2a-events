@@ -2,7 +2,7 @@
 
 > **Non-normative.** This is implementation guidance for people building or
 > operating an A2A Events publisher, not part of the protocol. The wire
-> protocol is defined in [`DESIGN.md`](../DESIGN.md); nothing here changes it.
+> protocol is defined in [the specification](https://a2a-events.github.io/a2a-events/specification/); nothing here changes it.
 > Where this doc describes the reference implementation, it cites the source so
 > you can check it against the code you actually have.
 
@@ -81,7 +81,7 @@ Postgres backends do; the in-memory ones are single-threaded by design).
 ### 2.2 Decouple publish from delivery (the real fix for huge fan-out)
 
 The durable model the protocol already assumes is a **log-and-pull** one:
-*"cursors index the topic log, not the filtered delivery stream"* (DESIGN
+*"cursors index the topic log, not the filtered delivery stream"* (spec
 §10.9). Lean into it:
 
 1. `publish()` only appends to the `EventStore` and returns. It does **no**
@@ -129,7 +129,7 @@ a real CPU cost.
 If you can make the signed payload **subscription-agnostic** (sign the event
 once; carry `subscriptionId`/`cursor`/`attempt` as unsigned delivery metadata or
 in a transport header), one signature serves every subscriber on that event.
-This is a protocol-level decision about what the signature covers (DESIGN §16,
+This is a protocol-level decision about what the signature covers (spec §16,
 §21.3) — call it out explicitly rather than changing it silently, because it
 changes what a subscriber's verification protects.
 
@@ -167,13 +167,13 @@ For very large or bursty fan-out, two options open up now that `Transport` and
   into sub-topics, or move cursor allocation to a sequence/identity column and
   drop the lock.
 - **Table growth & partitioning.** `a2a_events` grows without bound between
-  compactions. Partition by topic (or time) so retention compaction (DESIGN §31)
+  compactions. Partition by topic (or time) so retention compaction (spec §31)
   becomes a partition drop instead of a bulk `DELETE`, and so per-topic reads hit
   one partition.
 - **Indexes.** Reads order by `cursor` within a topic; make sure `(topic,
   cursor)` is indexed. The retry queue already indexes `next_retry_at`.
 - **Wakeups.** Delivery workers polling the log add latency and load. Postgres
-  `LISTEN/NOTIFY` on append (DESIGN §7.4 lists it) lets workers wake on new
+  `LISTEN/NOTIFY` on append (spec §7.4 lists it) lets workers wake on new
   events instead of polling.
 - **Pool sizing & offload.** The pooled backends check out a connection per
   call; with `PublisherConfig(offload_store=True, store_thread_safe=True)`
@@ -205,7 +205,7 @@ generally expects in-order events. Preserve per-subscription ordering by
 single-flighting each subscription (one in-flight delivery per
 `subscription_id`, concurrency *across* subscriptions) and only advancing the
 cursor/high-water on ack. Document the guarantee you actually provide; A2A Events
-is at-least-once and explicitly **not** exactly-once (DESIGN §19.1–§19.3).
+is at-least-once and explicitly **not** exactly-once (spec §19.1–§19.3).
 
 ### 3.4 Receiver-side idempotency
 
@@ -244,7 +244,7 @@ track:
 ### 3.7 Security costs at scale
 
 - **JWKS caching.** Subscribers refetch signing keys by `kid` on cache miss
-  (DESIGN §21.3); make sure that cache is warm and bounded, or key rotation
+  (spec §21.3); make sure that cache is warm and bounded, or key rotation
   becomes a fetch storm.
 - **SSRF checks.** Endpoint validation runs per delivery
   ([`runtime/ssrf.py`](https://github.com/a2a-events/a2a-events-python/blob/main/src/a2a_events/runtime/ssrf.py)); cache resolved

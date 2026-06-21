@@ -3,7 +3,7 @@
 > Research date: 2026-06-19
 > Scope: does a durable, AgentCard-native, topic-based event subscription
 > protocol already exist for A2A — officially or in the community?
-> Companion: [`docs/a2a-reference.md`](../docs/a2a-reference.md) (A2A v1.0 primitives we build on).
+> Companion: [`docs/a2a-reference.md`](a2a-reference.md) (A2A v1.0 primitives we build on).
 
 **Conclusion: genuine whitespace.** No official or third-party project
 defines a durable, AgentCard-native, topic-based agent-to-agent event
@@ -44,7 +44,7 @@ A2A core provides task-scoped asynchronous mechanisms only:
 All three are scoped to a task lifecycle. There is no durable, topic-based,
 publisher-declared event stream that a subscriber can subscribe to across
 many future, independent events — which is precisely the gap A2A Events
-fills (see `DESIGN.md` §3, §81).
+fills (see spec §3, §81).
 
 ### 1.3 The extension framework fits this design
 
@@ -79,7 +79,7 @@ The approach is idiomatic rather than working against the protocol.
 ## 3. Adjacent third-party projects (not competitors)
 
 Several event-driven A2A projects exist, but they operate one layer *below*
-this protocol — they use brokers as **transport/backend**, which `DESIGN.md`
+this protocol — they use brokers as **transport/backend**, which the spec
 §8 explicitly treats as an internal implementation detail, not protocol
 surface:
 
@@ -114,11 +114,11 @@ internal backend" model rather than competing with it.
 
 1. **Proceed** — the design fills a documented gap and does not duplicate
    official or community work.
-2. **Stay idiomatic** — reuse A2A primitives verbatim (`DESIGN.md` §6.1);
+2. **Stay idiomatic** — reuse A2A primitives verbatim (spec §6.1);
    the extension framework already supports everything needed.
 3. **Activation handshake** — A2A extension activation is a negotiation: the
    agent must echo activated extension URIs in the `A2A-Extensions` response
-   header (folded into `DESIGN.md` §12.3).
+   header (folded into spec §12.3).
 4. **Engage upstream** — consider posting the design to issue #1593 to gauge
    maintainer appetite before heavy investment.
 

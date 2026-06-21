@@ -21,12 +21,12 @@ Start here, in order:
 
 ## Reference material
 
-- [`DESIGN.md`](../DESIGN.md) — the normative specification (the source of truth).
+- [the specification](https://a2a-events.github.io/a2a-events/specification/) — the normative specification (the source of truth).
 - [`docs/a2a-reference.md`](a2a-reference.md) — a non-authoritative snapshot of
   the A2A v1.0 primitives this extension builds on.
-- [`schemas/`](../schemas) — JSON Schemas generated from the models.
-- [`conformance/`](../conformance) — conformance vectors.
+- [`schemas/`](https://github.com/a2a-events/a2a-events/tree/main/schemas) — JSON Schemas generated from the models.
+- [`conformance/`](https://github.com/a2a-events/a2a-events/tree/main/conformance) — conformance vectors.
 - [`prior-art.md`](prior-art.md) — prior art and positioning.
 
-These intro docs summarize and link into `DESIGN.md`; where they disagree, the
+These intro docs summarize and link into the spec; where they disagree, the
 design wins.

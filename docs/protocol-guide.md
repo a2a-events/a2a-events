@@ -5,7 +5,7 @@ lifecycle, selectors, the event envelope, delivery modes, cursors/replay/ack,
 the method surface, and the error and security model.
 
 This is an introduction, not the normative spec — where this guide and
-[`DESIGN.md`](../DESIGN.md) disagree, the design wins. Section references like
+[the specification](https://a2a-events.github.io/a2a-events/specification/) disagree, the design wins. Section references like
 (§14) point into the design.
 
 ---
@@ -40,7 +40,7 @@ subscription endpoint). **All A2A Events configuration lives in
 The crucial rule: when a subscriber subscribes, the publisher resolves the
 delivery endpoint **only from the subscriber's card**, fetched fresh and
 optionally trust-checked (HTTPS-only, same-origin, allowlist, card signature,
-or a domain-ownership challenge — see [§21](../DESIGN.md#21-security-model)). A
+or a domain-ownership challenge — see [§21](https://a2a-events.github.io/a2a-events/specification/#21-security-model)). A
 client cannot hand the publisher an arbitrary URL to deliver to; this is the
 foundation of the SSRF guard.
 
@@ -280,7 +280,7 @@ JSON-RPC codes where applicable). The HTTP+JSON binding maps them to HTTP status
 `TOPIC_NOT_AUTHORIZED`, `INVALID_SELECTOR`, `INVALID_CURSOR`, `CURSOR_EXPIRED`,
 `SUBSCRIPTION_NOT_FOUND`, `SUBSCRIPTION_EXPIRED`, `SIGNATURE_INVALID`,
 `RATE_LIMITED`, `LEASE_TOO_LONG`/`LEASE_TOO_SHORT`, and the delivery/card codes —
-see [§30](../DESIGN.md#30-error-model) for the full list.
+see [§30](https://a2a-events.github.io/a2a-events/specification/#30-error-model) for the full list.
 
 ---
 
@@ -299,5 +299,5 @@ see [§30](../DESIGN.md#30-error-model) for the full list.
 ```
 
 Next: [Getting Started](getting-started.md) runs exactly this flow in code. The
-full normative details are in [`DESIGN.md`](../DESIGN.md), with machine-readable
-[JSON Schemas](../schemas) and [conformance vectors](../conformance).
+full normative details are in [the specification](https://a2a-events.github.io/a2a-events/specification/), with machine-readable
+[JSON Schemas](https://github.com/a2a-events/a2a-events/tree/main/schemas) and [conformance vectors](https://github.com/a2a-events/a2a-events/tree/main/conformance).

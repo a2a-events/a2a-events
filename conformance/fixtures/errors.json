@@ -1,5 +1,5 @@
 {
-  "description": "Error code mapping (DESIGN.md §30). Each symbolic A2A Events code maps to a JSON-RPC numeric code in the -32000..-32099 server-error range and an HTTP status for the HTTP+JSON binding.",
+  "description": "Error code mapping (spec §30). Each symbolic A2A Events code maps to a JSON-RPC numeric code in the -32000..-32099 server-error range and an HTTP status for the HTTP+JSON binding.",
   "codes": [
     {
       "code": "EXTENSION_NOT_SUPPORTED",

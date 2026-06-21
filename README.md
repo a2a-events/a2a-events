@@ -29,7 +29,7 @@ lives in a separate repo:
   and guides, rendered as a browsable site.
 - **New here? Read the [docs/](docs) — [Introduction](docs/introduction.md),
   [Protocol Guide](docs/protocol-guide.md), [Getting Started](docs/getting-started.md).**
-- Design spec: [`DESIGN.md`](DESIGN.md)
+- Specification (normative): <https://a2a-events.github.io/a2a-events/specification/>
 - Scaling & operating a publisher: [`docs/scaling.md`](docs/scaling.md)
 - JSON Schemas (the published contract, generated from the models): [`schemas/`](schemas)
 - Conformance vectors: [`conformance/`](conformance)
@@ -43,14 +43,14 @@ lives in a separate repo:
 This repo is the language-neutral source of truth; the reference implementation
 lives in its own repo,
 [`a2a-events-python`](https://github.com/a2a-events/a2a-events-python) (see
-[§27 of the design](DESIGN.md#27-repository-strategy)).
+[§27 of the spec](https://a2a-events.github.io/a2a-events/specification/#27-repository-strategy)).
 
 ```
 a2a-events/          # this repo — language-neutral source of truth
-  DESIGN.md          #   normative spec
+  docs/              #   docs site sources, incl. specification.md (normative spec)
   schemas/           #   published JSON Schemas (the contract)
   conformance/       #   conformance fixtures + coverage
-  docs/              #   intro docs
+  mkdocs.yml         #   docs site config (MkDocs Material)
   tests/             #   cross-language conformance runner (stub)
 ```
 
@@ -80,8 +80,8 @@ remains authoritative.
 - **Operability** — retention compaction (§31), a durable retry architecture
   (§19.4), and an observability/metrics model (§32).
 
-See [`DESIGN.md`](DESIGN.md) for the normative details and the [docs](docs) for a
-guided tour. The
+See the [specification](https://a2a-events.github.io/a2a-events/specification/)
+for the normative details and the [docs](docs) for a guided tour. The
 [`a2a-events-python`](https://github.com/a2a-events/a2a-events-python) repo
 implements all of the above and is the place to run code.
 

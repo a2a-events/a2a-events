@@ -186,6 +186,6 @@ over HTTP.
 ## Where to go next
 
 - [Protocol Guide](protocol-guide.md) — the wire protocol in depth.
-- [`DESIGN.md`](../DESIGN.md) — the normative specification.
-- [`schemas/`](../schemas) — JSON Schemas generated from the models.
-- [`conformance/`](../conformance) — conformance vectors.
+- [the specification](https://a2a-events.github.io/a2a-events/specification/) — the normative specification.
+- [`schemas/`](https://github.com/a2a-events/a2a-events/tree/main/schemas) — JSON Schemas generated from the models.
+- [`conformance/`](https://github.com/a2a-events/a2a-events/tree/main/conformance) — conformance vectors.
