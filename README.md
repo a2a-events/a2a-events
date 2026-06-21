@@ -25,6 +25,8 @@ lives in a separate repo:
 
 ## Start here
 
+- **📖 Docs site:** <https://a2a-events.github.io/a2a-events/> — the specification
+  and guides, rendered as a browsable site.
 - **New here? Read the [docs/](docs) — [Introduction](docs/introduction.md),
   [Protocol Guide](docs/protocol-guide.md), [Getting Started](docs/getting-started.md).**
 - Design spec: [`DESIGN.md`](DESIGN.md)

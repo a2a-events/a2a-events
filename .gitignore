@@ -6,3 +6,10 @@
 
 # Tooling / caches
 .cache/
+
+# MkDocs build output
+site/
+
+# Python (build hooks)
+__pycache__/
+*.pyc

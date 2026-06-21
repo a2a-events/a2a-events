@@ -1,0 +1,104 @@
+site_name: A2A Events
+site_url: https://a2a-events.github.io/a2a-events/
+site_description: >-
+  AgentCard-native durable event subscriptions for the A2A protocol.
+  The language-neutral specification, schemas, and conformance vectors.
+site_author: A2A Events
+copyright: MIT-licensed. A2A Events is an extension built on A2A v1.0.
+
+repo_url: https://github.com/a2a-events/a2a-events
+repo_name: a2a-events/a2a-events
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  logo: assets/logo.svg
+  favicon: assets/logo.svg
+  icon:
+    repo: fontawesome/brands/github
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.top
+    - navigation.tracking
+    - navigation.indexes
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.action.edit
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue
+      accent: cyan
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue
+      accent: cyan
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - footnotes
+  - def_list
+  - toc:
+      permalink: true
+      toc_depth: 3
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.details
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+plugins:
+  - search
+
+hooks:
+  - hooks/site_hooks.py
+
+exclude_docs: |
+  README.md
+
+validation:
+  omitted_files: warn
+  absolute_links: ignore
+  unrecognized_links: warn
+  anchors: warn
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/a2a-events
+      name: A2A Events on GitHub
+    - icon: fontawesome/solid/diagram-project
+      link: https://a2a-protocol.org
+      name: A2A protocol
+
+nav:
+  - Home: index.md
+  - Documentation:
+      - Introduction: introduction.md
+      - Protocol Guide: protocol-guide.md
+      - Getting Started: getting-started.md
+      - Scaling & Implementation: scaling.md
+  - Specification: specification.md
+  - Resources:
+      - A2A v1.0 Reference: a2a-reference.md
+      - Prior Art & Positioning: prior-art.md

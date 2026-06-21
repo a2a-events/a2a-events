@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-labelledby="title desc">
+  <title id="title">A2A Events — Bidirectional Event Pairs</title>
+  <desc id="desc">Transparent version: two A2A agent nodes with two enlarged opposing cyan triangle pairs representing bidirectional event subscription communication.</desc>
+
+  <!-- Core A2A agent nodes: preserved blue, scale, and A-glyph geometry. -->
+  <g fill="#2874D7">
+    <circle cx="205" cy="205" r="205"/>
+    <circle cx="819" cy="819" r="205"/>
+  </g>
+
+  <!-- Two enlarged bidirectional event pairs:  < >      < > -->
+  <g fill="#22D3EE">
+    <g transform="translate(435 435) rotate(45)">
+      <path d="M-76 0 -12-62 -12 62Z"/>
+      <path d="M76 0 12-62 12 62Z"/>
+    </g>
+    <g transform="translate(589 589) rotate(45)">
+      <path d="M-76 0 -12-62 -12 62Z"/>
+      <path d="M76 0 12-62 12 62Z"/>
+    </g>
+  </g>
+
+  <!-- White A glyphs preserve the core mark's proportions and stroke language. -->
+  <g fill="none" stroke="#FFFFFF" stroke-width="31" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M96 307 205 47 314 307M137 226H273"/>
+    <path d="M710 921 819 661 928 921M751 840H887"/>
+  </g>
+</svg>
