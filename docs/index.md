@@ -4,27 +4,39 @@ hide:
   - toc
 ---
 
-# A2A Events
+<div class="aae-hero" markdown="0">
+  <div class="aae-hero__inner">
+    <p class="aae-eyebrow">A2A extension <span>·</span> events/v1</p>
+    <h1 class="aae-title">Subscribe to agents,<br><em>not URLs.</em></h1>
+    <p class="aae-lede">
+      Durable, AgentCard-native event subscriptions between A2A agents —
+      explicit topics, a normative selector algebra, leases, opaque cursors,
+      replay, and signed at-least-once delivery.
+    </p>
+    <div class="aae-actions">
+      <a class="aae-btn aae-btn--primary" href="specification/">Read the specification</a>
+      <a class="aae-btn" href="getting-started/">Get started</a>
+    </div>
+    <div class="aae-stream" role="img" aria-label="Events flowing from a publisher agent to a subscriber agent">
+      <span class="aae-node aae-node--pub">publisher</span>
+      <span class="aae-wire">
+        <span class="aae-track" aria-hidden="true">
+          <i class="aae-evt">&#8249;&#8250;</i><i class="aae-evt">&#8249;&#8250;</i><i class="aae-evt">&#8249;&#8250;</i><i class="aae-evt">&#8249;&#8250;</i><i class="aae-evt">&#8249;&#8250;</i><i class="aae-evt">&#8249;&#8250;</i><i class="aae-evt">&#8249;&#8250;</i><i class="aae-evt">&#8249;&#8250;</i><i class="aae-evt">&#8249;&#8250;</i><i class="aae-evt">&#8249;&#8250;</i><i class="aae-evt">&#8249;&#8250;</i><i class="aae-evt">&#8249;&#8250;</i><i class="aae-evt">&#8249;&#8250;</i><i class="aae-evt">&#8249;&#8250;</i><i class="aae-evt">&#8249;&#8250;</i><i class="aae-evt">&#8249;&#8250;</i><i class="aae-evt">&#8249;&#8250;</i><i class="aae-evt">&#8249;&#8250;</i><i class="aae-evt">&#8249;&#8250;</i><i class="aae-evt">&#8249;&#8250;</i>
+        </span>
+      </span>
+      <span class="aae-node aae-node--sub">subscriber</span>
+    </div>
+  </div>
+</div>
 
-<p style="font-size:1.25rem;max-width:46rem">
-  AgentCard-native durable event subscriptions for the
-  <a href="https://a2a-protocol.org">A2A protocol</a>.
-  <strong>Subscribe to agents, not URLs.</strong>
-</p>
-
-A2A Events lets one A2A agent subscribe to another agent's future events using
-AgentCard discovery, explicit topics, selectors, leases, durable cursors,
-acknowledgements, replay, and signed delivery. It is an A2A *extension*
-(`https://example.com/a2a-events/extensions/events/v1`), built strictly on
-A2A v1.0 primitives.
-
-This site is the **language-neutral source of truth** for the protocol — the
-[specification](specification.md), JSON Schemas, conformance vectors, and docs.
+A2A Events is an A2A *extension*
+(`https://example.com/a2a-events/extensions/events/v1`) built strictly on A2A
+v1.0 primitives. A subscriber discovers a publisher through its real AgentCard
+and subscribes to the agent — the publisher resolves delivery endpoints only
+from that card. This site is the language-neutral source of truth: the
+[specification](specification.md), JSON Schemas, conformance vectors, and guides.
 The Python reference implementation lives in
 [`a2a-events-python`](https://github.com/a2a-events/a2a-events-python).
-
-[Read the Specification](specification.md){ .md-button .md-button--primary }
-[Get Started](getting-started.md){ .md-button }
 
 ## Start here
 
@@ -90,7 +102,7 @@ The Python reference implementation lives in
 - **Operability** — retention compaction, a durable retry architecture, and an
   observability/metrics model.
 
-See the [Specification](specification.md) for the normative details and the
+See the [specification](specification.md) for the normative details and the
 [Protocol Guide](protocol-guide.md) for a guided tour. The
 [`a2a-events-python`](https://github.com/a2a-events/a2a-events-python) repo
 implements all of the above and is the place to run code.

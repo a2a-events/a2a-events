@@ -14,6 +14,9 @@ theme:
   name: material
   logo: assets/logo.svg
   favicon: assets/logo.svg
+  font:
+    text: IBM Plex Sans
+    code: IBM Plex Mono
   icon:
     repo: fontawesome/brands/github
   features:
@@ -23,6 +26,7 @@ theme:
     - navigation.top
     - navigation.tracking
     - navigation.indexes
+    - navigation.footer
     - toc.follow
     - search.suggest
     - search.highlight
@@ -69,6 +73,10 @@ markdown_extensions:
 
 plugins:
   - search
+
+extra_css:
+  - https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap
+  - assets/extra.css
 
 exclude_docs: |
   README.md
