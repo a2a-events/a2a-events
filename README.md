@@ -38,8 +38,10 @@ lives in a separate repo:
 
 ## Repository layout
 
-The project is split into two repositories that stay independent but reference
-each other (see [§27 of the design](DESIGN.md#27-repository-strategy)):
+This repo is the language-neutral source of truth; the reference implementation
+lives in its own repo,
+[`a2a-events-python`](https://github.com/a2a-events/a2a-events-python) (see
+[§27 of the design](DESIGN.md#27-repository-strategy)).
 
 ```
 a2a-events/          # this repo — language-neutral source of truth
@@ -48,13 +50,12 @@ a2a-events/          # this repo — language-neutral source of truth
   conformance/       #   conformance fixtures + coverage
   docs/              #   intro docs
   tests/             #   cross-language conformance runner (stub)
-
-a2a-events-python/   # the Python implementation (separate repo)
 ```
 
-The Python repo *vendors* a copy of `schemas/` and `conformance/fixtures/` from
-here (kept current with its `scripts/sync_spec.py`) so it stays self-contained,
-while this repo remains authoritative.
+The [`a2a-events-python`](https://github.com/a2a-events/a2a-events-python) repo
+*vendors* a copy of `schemas/` and `conformance/fixtures/` from here (kept current
+with its `scripts/sync_spec.py`) so it stays self-contained, while this repo
+remains authoritative.
 
 ## What's in the protocol
 

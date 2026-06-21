@@ -2213,69 +2213,10 @@ a2a-events-python   # the Python SDK and reference runtime
 Future language SDKs (`a2a-events-js`, `a2a-events-go`, …) follow the same
 pattern: their own repo, vendoring the contract from here.
 
-The historical monorepo layout below is retained for context.
-
-Recommended early layout:
-
-```text
-a2a-events/
-  LICENSE                 # MIT
-  DESIGN.md               # this document (source of truth during draft)
-  spec/                   # normative protocol text only
-    protocol.md
-    agentcard-extension.md
-    delivery.md
-    security.md
-  docs/                   # non-normative background
-    a2a-reference.md      # snapshot of A2A v1.0 primitives we depend on
-    prior-art.md          # prior-art research and positioning
-  schemas/
-    subscription.schema.json
-    event.schema.json
-    topic.schema.json
-    error.schema.json
-  openapi/
-    a2a-events.openapi.yaml
-  conformance/
-    fixtures/
-    cases/
-  sdks/
-    python/
-    js/
-    go/
-  runtime/
-    python-fastapi/
-  examples/
-    fastapi-publisher/
-    fastapi-subscriber/
-    node-subscriber/
-  cli/
-```
-
-Once the protocol stabilizes, the project may split into multiple repositories:
-
-```text
-a2a-events              # spec, schemas, OpenAPI, conformance, docs
-a2a-events-python       # Python SDK and reference runtime
-a2a-events-js           # JavaScript/TypeScript SDK
-a2a-events-go           # Go SDK
-a2a-events-examples     # optional examples repo
-```
-
-The main `a2a-events` repository should remain the source of truth for:
-
-```text
-protocol spec
-AgentCard extension
-schemas
-OpenAPI
-conformance tests
-test vectors
-security model
-versioning policy
-```
-
-Language SDKs should consume schemas and conformance tests from the spec repository.
+The `a2a-events` repository remains the source of truth for the protocol spec,
+the AgentCard extension, schemas, conformance tests and vectors, the security
+model, and the versioning policy. Each language SDK consumes the schemas and
+conformance vectors from this repo.
 
 ---
 
