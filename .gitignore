@@ -1,0 +1,8 @@
+# Editor / OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+
+# Tooling / caches
+.cache/

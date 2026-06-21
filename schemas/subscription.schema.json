@@ -1,0 +1,218 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/a2a-events/schemas/subscription.schema.json",
+  "$defs": {
+    "DeliveryMode": {
+      "enum": [
+        "webhook",
+        "a2a-message"
+      ],
+      "title": "DeliveryMode",
+      "type": "string"
+    },
+    "FieldFilterSelector": {
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "const": "field_filter",
+          "default": "field_filter",
+          "title": "Type",
+          "type": "string"
+        },
+        "where": {
+          "additionalProperties": {
+            "items": {},
+            "type": "array"
+          },
+          "title": "Where",
+          "type": "object"
+        }
+      },
+      "required": [
+        "where"
+      ],
+      "title": "FieldFilterSelector",
+      "type": "object"
+    },
+    "KeywordSearchSelector": {
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "const": "keyword_search",
+          "default": "keyword_search",
+          "title": "Type",
+          "type": "string"
+        },
+        "keywords": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Keywords",
+          "type": "array"
+        },
+        "match": {
+          "default": "all",
+          "enum": [
+            "all",
+            "any"
+          ],
+          "title": "Match",
+          "type": "string"
+        },
+        "fields": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Fields"
+        }
+      },
+      "required": [
+        "keywords"
+      ],
+      "title": "KeywordSearchSelector",
+      "type": "object"
+    },
+    "ResolvedDelivery": {
+      "description": "The delivery target the publisher resolved from the subscriber's card.",
+      "properties": {
+        "mode": {
+          "$ref": "#/$defs/DeliveryMode"
+        },
+        "resolvedUrl": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Resolvedurl"
+        },
+        "resolvedEndpoint": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Resolvedendpoint"
+        }
+      },
+      "required": [
+        "mode"
+      ],
+      "title": "ResolvedDelivery",
+      "type": "object"
+    },
+    "SubscriptionStatus": {
+      "enum": [
+        "active",
+        "expired",
+        "deleted"
+      ],
+      "title": "SubscriptionStatus",
+      "type": "string"
+    }
+  },
+  "properties": {
+    "subscriptionId": {
+      "title": "Subscriptionid",
+      "type": "string"
+    },
+    "status": {
+      "$ref": "#/$defs/SubscriptionStatus"
+    },
+    "publisherCardUrl": {
+      "title": "Publishercardurl",
+      "type": "string"
+    },
+    "subscriberCardUrl": {
+      "title": "Subscribercardurl",
+      "type": "string"
+    },
+    "topics": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Topics",
+      "type": "array"
+    },
+    "selector": {
+      "anyOf": [
+        {
+          "discriminator": {
+            "mapping": {
+              "field_filter": "#/$defs/FieldFilterSelector",
+              "keyword_search": "#/$defs/KeywordSearchSelector"
+            },
+            "propertyName": "type"
+          },
+          "oneOf": [
+            {
+              "$ref": "#/$defs/FieldFilterSelector"
+            },
+            {
+              "$ref": "#/$defs/KeywordSearchSelector"
+            }
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Selector"
+    },
+    "delivery": {
+      "$ref": "#/$defs/ResolvedDelivery"
+    },
+    "createdAt": {
+      "format": "date-time",
+      "title": "Createdat",
+      "type": "string"
+    },
+    "leaseUntil": {
+      "format": "date-time",
+      "title": "Leaseuntil",
+      "type": "string"
+    },
+    "cursors": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "title": "Cursors",
+      "type": "object"
+    },
+    "metadata": {
+      "additionalProperties": true,
+      "title": "Metadata",
+      "type": "object"
+    }
+  },
+  "required": [
+    "subscriptionId",
+    "status",
+    "publisherCardUrl",
+    "subscriberCardUrl",
+    "topics",
+    "delivery",
+    "createdAt",
+    "leaseUntil"
+  ],
+  "title": "Subscription",
+  "type": "object"
+}

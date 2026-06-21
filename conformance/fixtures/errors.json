@@ -1,0 +1,100 @@
+{
+  "description": "Error code mapping (DESIGN.md §30). Each symbolic A2A Events code maps to a JSON-RPC numeric code in the -32000..-32099 server-error range and an HTTP status for the HTTP+JSON binding.",
+  "codes": [
+    {
+      "code": "EXTENSION_NOT_SUPPORTED",
+      "jsonrpc": -32001,
+      "http": 400
+    },
+    {
+      "code": "TOPIC_NOT_FOUND",
+      "jsonrpc": -32010,
+      "http": 404
+    },
+    {
+      "code": "TOPIC_NOT_AUTHORIZED",
+      "jsonrpc": -32011,
+      "http": 403
+    },
+    {
+      "code": "SELECTOR_NOT_SUPPORTED",
+      "jsonrpc": -32012,
+      "http": 400
+    },
+    {
+      "code": "INVALID_SELECTOR",
+      "jsonrpc": -32013,
+      "http": 400
+    },
+    {
+      "code": "INVALID_CURSOR",
+      "jsonrpc": -32014,
+      "http": 400
+    },
+    {
+      "code": "CURSOR_EXPIRED",
+      "jsonrpc": -32016,
+      "http": 409
+    },
+    {
+      "code": "SUBSCRIPTION_NOT_FOUND",
+      "jsonrpc": -32020,
+      "http": 404
+    },
+    {
+      "code": "SUBSCRIPTION_EXPIRED",
+      "jsonrpc": -32021,
+      "http": 409
+    },
+    {
+      "code": "DELIVERY_MODE_NOT_SUPPORTED",
+      "jsonrpc": -32030,
+      "http": 400
+    },
+    {
+      "code": "SUBSCRIBER_CARD_UNREACHABLE",
+      "jsonrpc": -32031,
+      "http": 502
+    },
+    {
+      "code": "SUBSCRIBER_CARD_INVALID",
+      "jsonrpc": -32032,
+      "http": 400
+    },
+    {
+      "code": "DELIVERY_ENDPOINT_NOT_DECLARED",
+      "jsonrpc": -32033,
+      "http": 400
+    },
+    {
+      "code": "DELIVERY_ENDPOINT_BLOCKED",
+      "jsonrpc": -32034,
+      "http": 403
+    },
+    {
+      "code": "SIGNATURE_INVALID",
+      "jsonrpc": -32040,
+      "http": 401
+    },
+    {
+      "code": "REPLAY_NOT_SUPPORTED",
+      "jsonrpc": -32050,
+      "http": 400
+    },
+    {
+      "code": "RATE_LIMITED",
+      "jsonrpc": -32060,
+      "http": 429
+    },
+    {
+      "code": "LEASE_TOO_LONG",
+      "jsonrpc": -32070,
+      "http": 400
+    },
+    {
+      "code": "LEASE_TOO_SHORT",
+      "jsonrpc": -32071,
+      "http": 400
+    }
+  ]
+}

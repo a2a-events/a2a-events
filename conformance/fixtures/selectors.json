@@ -1,0 +1,198 @@
+{
+  "description": "Selector matching vectors (DESIGN.md §10.4). Each case supplies a selector and an event; `match` is the expected result, or `error` names the symbolic error code the matcher must raise.",
+  "event": {
+    "type": "org.example.a2a.agent_card.discovered.v1",
+    "subject": "agent-card/x",
+    "data": {
+      "cardUrl": "https://new.example.com/card.json",
+      "capabilities": [
+        "streaming",
+        "pushNotifications"
+      ],
+      "count": 3,
+      "active": true,
+      "title": "New Coding Agent",
+      "skills": {
+        "tags": [
+          "coding",
+          "search"
+        ]
+      }
+    }
+  },
+  "cases": [
+    {
+      "name": "field_filter any-of on array matches",
+      "selector": {
+        "type": "field_filter",
+        "where": {
+          "data.capabilities": [
+            "streaming",
+            "batch"
+          ]
+        }
+      },
+      "match": true
+    },
+    {
+      "name": "field_filter no intersection",
+      "selector": {
+        "type": "field_filter",
+        "where": {
+          "data.capabilities": [
+            "batch"
+          ]
+        }
+      },
+      "match": false
+    },
+    {
+      "name": "field_filter AND across fields (both satisfied)",
+      "selector": {
+        "type": "field_filter",
+        "where": {
+          "data.capabilities": [
+            "streaming"
+          ],
+          "data.skills.tags": [
+            "coding"
+          ]
+        }
+      },
+      "match": true
+    },
+    {
+      "name": "field_filter AND across fields (one fails)",
+      "selector": {
+        "type": "field_filter",
+        "where": {
+          "data.capabilities": [
+            "streaming"
+          ],
+          "data.skills.tags": [
+            "nope"
+          ]
+        }
+      },
+      "match": false
+    },
+    {
+      "name": "field_filter absent field does not match",
+      "selector": {
+        "type": "field_filter",
+        "where": {
+          "data.missing": [
+            "x"
+          ]
+        }
+      },
+      "match": false
+    },
+    {
+      "name": "field_filter bool is not int (True != 1)",
+      "selector": {
+        "type": "field_filter",
+        "where": {
+          "data.active": [
+            1
+          ]
+        }
+      },
+      "match": false
+    },
+    {
+      "name": "field_filter bool matches bool",
+      "selector": {
+        "type": "field_filter",
+        "where": {
+          "data.active": [
+            true
+          ]
+        }
+      },
+      "match": true
+    },
+    {
+      "name": "field_filter number is not string (3 != '3')",
+      "selector": {
+        "type": "field_filter",
+        "where": {
+          "data.count": [
+            "3"
+          ]
+        }
+      },
+      "match": false
+    },
+    {
+      "name": "field_filter object path is invalid",
+      "selector": {
+        "type": "field_filter",
+        "where": {
+          "data.skills": [
+            "x"
+          ]
+        }
+      },
+      "error": "INVALID_SELECTOR"
+    },
+    {
+      "name": "keyword_search match=all fails when one keyword absent",
+      "selector": {
+        "type": "keyword_search",
+        "keywords": [
+          "coding",
+          "missing"
+        ],
+        "match": "all",
+        "fields": [
+          "data.title"
+        ]
+      },
+      "match": false
+    },
+    {
+      "name": "keyword_search match=any succeeds case-insensitively",
+      "selector": {
+        "type": "keyword_search",
+        "keywords": [
+          "CODING",
+          "missing"
+        ],
+        "match": "any",
+        "fields": [
+          "data.title"
+        ]
+      },
+      "match": true
+    },
+    {
+      "name": "keyword_search finds substring in title",
+      "selector": {
+        "type": "keyword_search",
+        "keywords": [
+          "coding"
+        ],
+        "match": "all",
+        "fields": [
+          "data.title"
+        ]
+      },
+      "match": true
+    },
+    {
+      "name": "keyword_search default fields (array of strings)",
+      "selector": {
+        "type": "keyword_search",
+        "keywords": [
+          "search"
+        ],
+        "match": "all"
+      },
+      "default_search_fields": [
+        "data.skills.tags"
+      ],
+      "match": true
+    }
+  ]
+}

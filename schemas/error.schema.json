@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/a2a-events/schemas/error.schema.json",
+  "title": "A2AEventsError",
+  "description": "JSON-RPC 2.0 error object with an A2A Events symbolic code.",
+  "type": "object",
+  "required": [
+    "code",
+    "message"
+  ],
+  "properties": {
+    "code": {
+      "type": "integer",
+      "description": "JSON-RPC numeric error code."
+    },
+    "message": {
+      "type": "string"
+    },
+    "data": {
+      "type": "object",
+      "required": [
+        "code"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "Symbolic A2A Events error code.",
+          "enum": [
+            "EXTENSION_NOT_SUPPORTED",
+            "TOPIC_NOT_FOUND",
+            "TOPIC_NOT_AUTHORIZED",
+            "SELECTOR_NOT_SUPPORTED",
+            "INVALID_SELECTOR",
+            "INVALID_CURSOR",
+            "CURSOR_EXPIRED",
+            "SUBSCRIPTION_NOT_FOUND",
+            "SUBSCRIPTION_EXPIRED",
+            "DELIVERY_MODE_NOT_SUPPORTED",
+            "SUBSCRIBER_CARD_UNREACHABLE",
+            "SUBSCRIBER_CARD_INVALID",
+            "DELIVERY_ENDPOINT_NOT_DECLARED",
+            "DELIVERY_ENDPOINT_BLOCKED",
+            "SIGNATURE_INVALID",
+            "REPLAY_NOT_SUPPORTED",
+            "RATE_LIMITED",
+            "LEASE_TOO_LONG",
+            "LEASE_TOO_SHORT"
+          ]
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}

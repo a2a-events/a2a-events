@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/a2a-events/schemas/topic.schema.json",
+  "$defs": {
+    "DeliveryMode": {
+      "enum": [
+        "webhook",
+        "a2a-message"
+      ],
+      "title": "DeliveryMode",
+      "type": "string"
+    }
+  },
+  "properties": {
+    "name": {
+      "title": "Name",
+      "type": "string"
+    },
+    "description": {
+      "default": "",
+      "title": "Description",
+      "type": "string"
+    },
+    "schemaUrl": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Schemaurl"
+    },
+    "retentionSeconds": {
+      "default": 604800,
+      "title": "Retentionseconds",
+      "type": "integer"
+    },
+    "replay": {
+      "default": true,
+      "title": "Replay",
+      "type": "boolean"
+    },
+    "selectorTypes": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Selectortypes",
+      "type": "array"
+    },
+    "filterableFields": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Filterablefields"
+    },
+    "deliveryModes": {
+      "items": {
+        "$ref": "#/$defs/DeliveryMode"
+      },
+      "title": "Deliverymodes",
+      "type": "array"
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "title": "Topic",
+  "type": "object"
+}

@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/a2a-events/schemas/selector.schema.json",
+  "$defs": {
+    "FieldFilterSelector": {
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "const": "field_filter",
+          "default": "field_filter",
+          "title": "Type",
+          "type": "string"
+        },
+        "where": {
+          "additionalProperties": {
+            "items": {},
+            "type": "array"
+          },
+          "title": "Where",
+          "type": "object"
+        }
+      },
+      "required": [
+        "where"
+      ],
+      "title": "FieldFilterSelector",
+      "type": "object"
+    },
+    "KeywordSearchSelector": {
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "const": "keyword_search",
+          "default": "keyword_search",
+          "title": "Type",
+          "type": "string"
+        },
+        "keywords": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Keywords",
+          "type": "array"
+        },
+        "match": {
+          "default": "all",
+          "enum": [
+            "all",
+            "any"
+          ],
+          "title": "Match",
+          "type": "string"
+        },
+        "fields": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Fields"
+        }
+      },
+      "required": [
+        "keywords"
+      ],
+      "title": "KeywordSearchSelector",
+      "type": "object"
+    }
+  },
+  "discriminator": {
+    "mapping": {
+      "field_filter": "#/$defs/FieldFilterSelector",
+      "keyword_search": "#/$defs/KeywordSearchSelector"
+    },
+    "propertyName": "type"
+  },
+  "oneOf": [
+    {
+      "$ref": "#/$defs/FieldFilterSelector"
+    },
+    {
+      "$ref": "#/$defs/KeywordSearchSelector"
+    }
+  ]
+}

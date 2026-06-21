@@ -1,0 +1,13 @@
+{
+  "description": "Cursor ordering (DESIGN.md §10.9). Within a topic, cursors are totally ordered by byte-wise lexicographic comparison, and that order must equal event order. `ordered` lists reference cursors already in ascending order; a conformant lexicographic sort must leave them unchanged.",
+  "ordered": [
+    "agent_card.discovered:0000000000000000",
+    "agent_card.discovered:0000000000000001",
+    "agent_card.discovered:0000000000000009",
+    "agent_card.discovered:0000000000000010",
+    "agent_card.discovered:0000000000000099",
+    "agent_card.discovered:0000000000000100",
+    "agent_card.discovered:0000000000001000",
+    "agent_card.discovered:9999999999999999"
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/a2a-events/schemas/event.schema.json",
+  "$defs": {
+    "A2AEventsAttributes": {
+      "properties": {
+        "extension": {
+          "default": "https://example.com/a2a-events/extensions/events/v1",
+          "title": "Extension",
+          "type": "string"
+        },
+        "publisherCardUrl": {
+          "title": "Publishercardurl",
+          "type": "string"
+        },
+        "topic": {
+          "title": "Topic",
+          "type": "string"
+        },
+        "cursor": {
+          "title": "Cursor",
+          "type": "string"
+        },
+        "schemaUrl": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Schemaurl"
+        },
+        "subscriptionId": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Subscriptionid"
+        },
+        "deliveryAttempt": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Deliveryattempt"
+        },
+        "traceId": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Traceid"
+        }
+      },
+      "required": [
+        "publisherCardUrl",
+        "topic",
+        "cursor"
+      ],
+      "title": "A2AEventsAttributes",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "specversion": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Specversion",
+      "type": "string"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "source": {
+      "title": "Source",
+      "type": "string"
+    },
+    "type": {
+      "title": "Type",
+      "type": "string"
+    },
+    "subject": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Subject"
+    },
+    "time": {
+      "format": "date-time",
+      "title": "Time",
+      "type": "string"
+    },
+    "datacontenttype": {
+      "default": "application/json",
+      "title": "Datacontenttype",
+      "type": "string"
+    },
+    "data": {
+      "additionalProperties": true,
+      "title": "Data",
+      "type": "object"
+    },
+    "a2aevents": {
+      "$ref": "#/$defs/A2AEventsAttributes"
+    }
+  },
+  "required": [
+    "id",
+    "source",
+    "type",
+    "time",
+    "data",
+    "a2aevents"
+  ],
+  "title": "CloudEvent",
+  "type": "object"
+}
